@@ -1,2 +1,13 @@
 Nome: João Pedro Thurow Tomaszewski
 TCC: CTSMS
+
+Comandos Úteis GIT:
+
+git init = inicia o git na pasta
+
+git status = exibe as informações dos arquivos da pasta
+
+git add "nomedoarquivo.exe" = adiciona o arquivo aos arquivos a serem enviados
+
+git add . = adiciona todos arquivos em vermelho no "git status" para serem adicionados nos arquivos a serem enviados.
+
