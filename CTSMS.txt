@@ -25,6 +25,11 @@ git branch nomedabranch = cria uma branch
 
 git checkout nomedabranch = muda para branch selecionada, as modificações serão feita apenas nela
 
+git pull = atualiza os arquivos locais de acordo com os arquivos no github
+
+git merge = (primeiro entre na brench que receberá as atualizações e use o git pull, depois use o
+git merge nome(da brench que sera salvo os dados) na principal
+
 
 
 
