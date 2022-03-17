@@ -11,3 +11,7 @@ git add "nomedoarquivo.exe" = adiciona o arquivo aos arquivos a serem enviados
 
 git add . = adiciona todos arquivos em vermelho no "git status" para serem adicionados nos arquivos a serem enviados.
 
+git commit -m "mensagem aqui" = prepara um commit para o github com todos arquivos adicionados
+
+git push = envia para o github os arquivos preparados no commit
+
