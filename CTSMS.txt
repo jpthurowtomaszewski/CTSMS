@@ -23,6 +23,9 @@ git branch = mostra as branchs disponiveis
 
 git branch nomedabranch = cria uma branch
 
+git checkout nomedabranch = muda para branch selecionada, as modificações serão feita apenas nela
+
+
 
 
 
