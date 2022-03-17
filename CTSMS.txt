@@ -15,3 +15,14 @@ git commit -m "mensagem aqui" = prepara um commit para o github com todos arquiv
 
 git push = envia para o github os arquivos preparados no commit
 
+git reflog = mostra as versões disponíveis deste programa
+
+git reset --hard 53x54c2 = (o código é um exemplo de código de versão), isso reseta a aplicação para a versão selecionada
+
+git branch = mostra as branchs disponiveis
+
+git branch nomedabranch = cria uma branch
+
+
+
+
