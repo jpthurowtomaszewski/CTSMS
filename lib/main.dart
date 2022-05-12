@@ -1,3 +1,4 @@
+import 'pages/home_gestores.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -9,6 +10,12 @@ class CtsmsApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return MaterialApp(
+        title: 'CTSMS',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+            primarySwatch: Colors.grey,
+            visualDensity: VisualDensity.adaptivePlatformDensity),
+        home: HomeGestores());
   }
 }
