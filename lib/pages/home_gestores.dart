@@ -5,6 +5,7 @@
 import 'package:flutter/material.dart';
 import 'package:tcc/pages/motoristas_lista.dart';
 import 'package:tcc/pages/veiculos_lista.dart';
+import 'package:tcc/pages/ver_mapa.dart';
 
 class HomeGestores extends StatefulWidget {
   HomeGestores({Key? key}) : super(key: key);
@@ -13,6 +14,15 @@ class HomeGestores extends StatefulWidget {
 }
 
 class _HomeGestoresState extends State<HomeGestores> {
+  verMapa() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (_) => VerMapa(),
+      ),
+    );
+  }
+
   veiculosLista() {
     Navigator.push(
       context,
@@ -62,7 +72,7 @@ class _HomeGestoresState extends State<HomeGestores> {
                       alignment: Alignment.center,
                       margin: EdgeInsets.only(top: 30, left: 24, right: 24),
                       child: ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () => verMapa(),
                           style: ButtonStyle(backgroundColor:
                               MaterialStateProperty.resolveWith<Color?>(
                                   (states) {
