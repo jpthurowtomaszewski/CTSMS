@@ -3,6 +3,7 @@
 //import 'dart:html';
 
 import 'package:flutter/material.dart';
+import 'package:tcc/pages/motoristas_lista.dart';
 import 'package:tcc/pages/veiculos_lista.dart';
 
 class HomeGestores extends StatefulWidget {
@@ -17,6 +18,15 @@ class _HomeGestoresState extends State<HomeGestores> {
       context,
       MaterialPageRoute(
         builder: (_) => VeiculosLista(),
+      ),
+    );
+  }
+
+  motoristasLista() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (_) => MotoristasLista(),
       ),
     );
   }
@@ -100,7 +110,7 @@ class _HomeGestoresState extends State<HomeGestores> {
                       alignment: Alignment.center,
                       margin: EdgeInsets.only(top: 10, left: 24, right: 24),
                       child: ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () => motoristasLista(),
                           style: ButtonStyle(backgroundColor:
                               MaterialStateProperty.resolveWith<Color?>(
                                   (states) {

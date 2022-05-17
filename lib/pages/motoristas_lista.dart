@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class VeiculosLista extends StatefulWidget {
-  VeiculosLista({Key? key}) : super(key: key);
+class MotoristasLista extends StatefulWidget {
+  MotoristasLista({Key? key}) : super(key: key);
 
   @override
-  State<VeiculosLista> createState() => _VeiculosListaState();
+  State<MotoristasLista> createState() => _MotoristasListaState();
 }
 
-class _VeiculosListaState extends State<VeiculosLista> {
+class _MotoristasListaState extends State<MotoristasLista> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +29,7 @@ class _VeiculosListaState extends State<VeiculosLista> {
           child: const Align(
               alignment: Alignment.topLeft,
               child: Text(
-                'Veículos',
+                'Motoristas',
                 style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
               )),
         ),
