@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:mongo_dart/mongo_dart.dart' as M;
 import 'package:tcc/Models/MotoristasModel.dart';
+import 'package:tcc/pages/motoristas_lista.dart';
 
 import '../dbHelper/mongodb.dart';
 
@@ -17,6 +18,7 @@ class _MotoristasCreateState extends State<MotoristasCreate> {
   var nomeController = new TextEditingController();
   var telefoneController = new TextEditingController();
   var matriculaController = new TextEditingController();
+  var _contadorMotorista = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -65,6 +67,7 @@ class _MotoristasCreateState extends State<MotoristasCreate> {
                   onPressed: () {
                     _insertData(nomeController.text, telefoneController.text,
                         matriculaController.text);
+                    _contadorMotorista++;
                   },
                   child: Text("Cadastrar"))
             ])),
@@ -77,7 +80,7 @@ class _MotoristasCreateState extends State<MotoristasCreate> {
     var _id = M.ObjectId();
     var veiculo = "";
     final data = MotoristasModel(
-        idMotorista: _id,
+        id: _id,
         nomeMotorista: nome,
         telefoneMotorista: telefone,
         matriculaMotorista: matricula,

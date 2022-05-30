@@ -67,8 +67,7 @@ class _VeiculosCreateState extends State<VeiculosCreate> {
   Future<void> _insertData(String modelo, String placa) async {
     var _id = M.ObjectId();
     var veiculo = "";
-    final data =
-        VeiculosModel(idVeiculo: _id, modeloVeiculo: modelo, placa: placa);
+    final data = VeiculosModel(id: _id, modeloVeiculo: modelo, placa: placa);
     var result = await MongoDatabase.insertVeiculo(data);
     ScaffoldMessenger.of(context)
         .showSnackBar(SnackBar(content: Text("ID inserido: " + _id.$oid)));

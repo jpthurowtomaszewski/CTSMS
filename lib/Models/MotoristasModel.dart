@@ -1,7 +1,3 @@
-// To parse this JSON data, do
-//
-//     final motoristasModel = motoristasModelFromJson(jsonString);
-
 import 'dart:convert';
 
 import 'package:mongo_dart/mongo_dart.dart';
@@ -14,14 +10,14 @@ String motoristasModelToJson(MotoristasModel data) =>
 
 class MotoristasModel {
   MotoristasModel({
-    required this.idMotorista,
+    required this.id,
     required this.nomeMotorista,
     required this.telefoneMotorista,
     required this.matriculaMotorista,
     required this.veiculoAtual,
   });
 
-  ObjectId idMotorista;
+  ObjectId id;
   String nomeMotorista;
   String telefoneMotorista;
   String matriculaMotorista;
@@ -29,15 +25,15 @@ class MotoristasModel {
 
   factory MotoristasModel.fromJson(Map<String, dynamic> json) =>
       MotoristasModel(
-        idMotorista: json["_idMotorista"],
-        nomeMotorista: json["nomeMotorista"],
-        telefoneMotorista: json["telefoneMotorista"],
-        matriculaMotorista: json["matriculaMotorista"],
-        veiculoAtual: json["veiculoAtual"],
+        id: json["_id"],
+        nomeMotorista: json["nomeMotorista"] ?? "vazio?",
+        telefoneMotorista: json["telefoneMotorista"] ?? "vazio?",
+        matriculaMotorista: json["matriculaMotorista"] ?? "vazio?",
+        veiculoAtual: json["veiculoAtual"] ?? "vazio?",
       );
 
   Map<String, dynamic> toJson() => {
-        "_idMotorista": idMotorista,
+        "_id": id,
         "nomeMotorista": nomeMotorista,
         "telefoneMotorista": telefoneMotorista,
         "matriculaMotorista": matriculaMotorista,

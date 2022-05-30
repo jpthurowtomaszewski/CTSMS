@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:tcc/dbHelper/mongodb.dart';
+import 'package:tcc/pages/home_page.dart';
 
 import 'pages/home_gestores.dart';
 import 'package:flutter/material.dart';
@@ -22,6 +23,6 @@ class CtsmsApp extends StatelessWidget {
         theme: ThemeData(
             primarySwatch: Colors.grey,
             visualDensity: VisualDensity.adaptivePlatformDensity),
-        home: HomeGestores());
+        home: HomePage());
   }
 }

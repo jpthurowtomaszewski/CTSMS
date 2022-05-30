@@ -47,14 +47,6 @@ class _HomeGestoresState extends State<HomeGestores> {
         appBar: AppBar(
           title: const Text('CTSMS',
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-          actions: const [
-            IconButton(
-              padding: EdgeInsets.all(18),
-              icon: Icon(Icons.login),
-              tooltip: 'Sair',
-              onPressed: null,
-            ),
-          ],
         ),
         body: Center(
           child: Container(

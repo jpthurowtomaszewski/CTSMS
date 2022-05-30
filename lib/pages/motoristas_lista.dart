@@ -1,4 +1,10 @@
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:tcc/Models/MotoristasModel.dart';
+import 'package:tcc/dbHelper/mongodb.dart';
 import 'package:tcc/pages/motoristas_create.dart';
 
 class MotoristasLista extends StatefulWidget {
@@ -45,6 +51,37 @@ class _MotoristasListaState extends State<MotoristasLista> {
                         style: TextStyle(
                             fontSize: 28, fontWeight: FontWeight.bold),
                       )),
+                  FutureBuilder(
+                      future: MongoDatabase.getMotorista(),
+                      builder: (context, AsyncSnapshot snapshot) {
+                        if (snapshot.connectionState ==
+                            ConnectionState.waiting) {
+                          return Center(
+                            child: CircularProgressIndicator(),
+                          );
+                        } else {
+                          if (snapshot.hasData) {
+                            //var parData = MongoDatabase.contarMotoristas();
+                            //print("Todos dados" + parData.toString());
+                            //var contador = MongoDatabase.contarMotoristas();
+
+                            var totalData = snapshot.data.length;
+                            print("Todos dados" + totalData.toString());
+                            return ListView.builder(
+                                scrollDirection: Axis.vertical,
+                                shrinkWrap: true,
+                                itemCount: totalData,
+                                itemBuilder: (context, index) {
+                                  return displayCard(MotoristasModel.fromJson(
+                                      snapshot.data[index]));
+                                });
+                          } else {
+                            return Center(
+                              child: Text("Não há dados disponíveis"),
+                            );
+                          }
+                        }
+                      }),
                   Container(
                       alignment: Alignment.center,
                       margin: EdgeInsets.only(top: 30, left: 24, right: 24),
@@ -72,5 +109,12 @@ class _MotoristasListaState extends State<MotoristasLista> {
                 ],
               )),
         ));
+  }
+
+  Widget displayCard(MotoristasModel data) {
+    return Card(
+        child: Column(
+      children: [Text("${data.nomeMotorista}")],
+    ));
   }
 }

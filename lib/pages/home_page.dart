@@ -1,21 +1,28 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
-
 import 'package:flutter/material.dart';
-import 'package:tcc/pages/veiculos_create.dart';
+import 'package:tcc/pages/home_gestores.dart';
 
-class VeiculosLista extends StatefulWidget {
-  VeiculosLista({Key? key}) : super(key: key);
+class HomePage extends StatefulWidget {
+  HomePage({Key? key}) : super(key: key);
 
   @override
-  State<VeiculosLista> createState() => _VeiculosListaState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _VeiculosListaState extends State<VeiculosLista> {
-  veiculosCreate() {
+class _HomePageState extends State<HomePage> {
+  homeGestores() {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (_) => VeiculosCreate(),
+        builder: (_) => HomeGestores(),
+      ),
+    );
+  }
+
+  homeMotoristas() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (_) => HomeGestores(),
       ),
     );
   }
@@ -26,14 +33,6 @@ class _VeiculosListaState extends State<VeiculosLista> {
         appBar: AppBar(
           title: const Text('CTSMS',
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-          /*actions: const [
-          IconButton(
-            padding: EdgeInsets.all(18),
-            icon: Icon(Icons.arrow_back),
-            tooltip: 'Voltar',
-            onPressed: null,
-          ),
-        ],*/
         ),
         body: Center(
           child: Container(
@@ -43,7 +42,7 @@ class _VeiculosListaState extends State<VeiculosLista> {
                   const Align(
                       alignment: Alignment.topLeft,
                       child: Text(
-                        'Veículos Cadastrados',
+                        'Login',
                         style: TextStyle(
                             fontSize: 28, fontWeight: FontWeight.bold),
                       )),
@@ -51,7 +50,7 @@ class _VeiculosListaState extends State<VeiculosLista> {
                       alignment: Alignment.center,
                       margin: EdgeInsets.only(top: 30, left: 24, right: 24),
                       child: ElevatedButton(
-                          onPressed: () => veiculosCreate(),
+                          onPressed: () => homeGestores(),
                           style: ButtonStyle(backgroundColor:
                               MaterialStateProperty.resolveWith<Color?>(
                                   (states) {
@@ -63,7 +62,31 @@ class _VeiculosListaState extends State<VeiculosLista> {
                               Padding(
                                   padding: EdgeInsets.all(16),
                                   child: Text(
-                                    'Adicionar Veículo',
+                                    'Gestão',
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold),
+                                  ))
+                            ],
+                          ))),
+                  Container(
+                      alignment: Alignment.center,
+                      margin: EdgeInsets.only(top: 10, left: 24, right: 24),
+                      child: ElevatedButton(
+                          onPressed: () => homeMotoristas(),
+                          style: ButtonStyle(backgroundColor:
+                              MaterialStateProperty.resolveWith<Color?>(
+                                  (states) {
+                            return Colors.black;
+                          })),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Padding(
+                                  padding: EdgeInsets.all(16),
+                                  child: Text(
+                                    'Motoristas',
                                     style: TextStyle(
                                         color: Colors.white,
                                         fontSize: 18,
