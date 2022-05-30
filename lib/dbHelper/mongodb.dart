@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:mongo_dart/mongo_dart.dart';
 import 'package:tcc/Models/MotoristasModel.dart';
+import 'package:tcc/Models/VeiculosModel.dart';
 import 'package:tcc/dbHelper/constant.dart';
 
 class MongoDatabase {
@@ -13,7 +14,21 @@ class MongoDatabase {
     userCollection = db.collection(USER_COLLECTION);
   }
 
-  static Future<String> insert(MotoristasModel data) async {
+  static Future<String> insertMotorista(MotoristasModel data) async {
+    try {
+      var result = await userCollection.insertOne(data.toJson());
+      if (result.isSuccess) {
+        return "Dados Inseridos";
+      } else {
+        return "Algo deu errado enquanto inseria os dados";
+      }
+    } catch (e) {
+      print(e.toString());
+      return e.toString();
+    }
+  }
+
+  static Future<String> insertVeiculo(VeiculosModel data) async {
     try {
       var result = await userCollection.insertOne(data.toJson());
       if (result.isSuccess) {

@@ -82,7 +82,7 @@ class _MotoristasCreateState extends State<MotoristasCreate> {
         telefoneMotorista: telefone,
         matriculaMotorista: matricula,
         veiculoAtual: veiculo);
-    var result = await MongoDatabase.insert(data);
+    var result = await MongoDatabase.insertMotorista(data);
     ScaffoldMessenger.of(context)
         .showSnackBar(SnackBar(content: Text("ID inserido: " + _id.$oid)));
     _clearAll();
