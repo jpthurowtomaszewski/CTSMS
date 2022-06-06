@@ -18,10 +18,20 @@ class _MotoristasCreateState extends State<MotoristasCreate> {
   var nomeController = new TextEditingController();
   var telefoneController = new TextEditingController();
   var matriculaController = new TextEditingController();
-  var _contadorMotorista = 0;
+
+  String _checkInsertUpdate = "Cadastrar Motorista";
 
   @override
   Widget build(BuildContext context) {
+    if (ModalRoute.of(context)?.settings.arguments != null) {
+      MotoristasModel data =
+          ModalRoute.of(context)?.settings.arguments as MotoristasModel;
+      nomeController.text = data.nomeMotorista;
+      telefoneController.text = data.telefoneMotorista;
+      matriculaController.text = data.matriculaMotorista;
+      _checkInsertUpdate = "Alterar Dados";
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('CTSMS',
@@ -39,10 +49,10 @@ class _MotoristasCreateState extends State<MotoristasCreate> {
         child: Container(
             padding: EdgeInsets.all(18),
             child: Column(children: [
-              const Align(
+              Align(
                   alignment: Alignment.topLeft,
                   child: Text(
-                    'Cadastrar Motorista',
+                    _checkInsertUpdate,
                     style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
                   )),
               SizedBox(
@@ -65,14 +75,33 @@ class _MotoristasCreateState extends State<MotoristasCreate> {
               ),
               ElevatedButton(
                   onPressed: () {
-                    _insertData(nomeController.text, telefoneController.text,
-                        matriculaController.text);
-                    _contadorMotorista++;
+                    if (_checkInsertUpdate == "Alterar Dados") {
+                      MotoristasModel data = ModalRoute.of(context)
+                          ?.settings
+                          .arguments as MotoristasModel;
+                      _updateData(data.id, nomeController.text,
+                          telefoneController.text, matriculaController.text);
+                    } else {
+                      _insertData(nomeController.text, telefoneController.text,
+                          matriculaController.text);
+                    }
                   },
-                  child: Text("Cadastrar"))
+                  child: Text(_checkInsertUpdate))
             ])),
       ),
     );
+  }
+
+  Future<void> _updateData(
+      var id, String nome, String telefone, String matricula) async {
+    final updataData = MotoristasModel(
+        id: id,
+        nomeMotorista: nome,
+        telefoneMotorista: telefone,
+        matriculaMotorista: matricula,
+        veiculoAtual: "");
+    await MongoDatabase.update(updataData)
+        .whenComplete(() => Navigator.pop(context));
   }
 
   Future<void> _insertData(

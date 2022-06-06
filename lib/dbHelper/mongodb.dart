@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:mongo_dart/mongo_dart.dart';
 import 'package:tcc/Models/MotoristasModel.dart';
-import 'package:tcc/Models/VeiculosModel.dart';
+//import 'package:tcc/Models/VeiculosModel.dart';
 import 'package:tcc/dbHelper/constant.dart';
 
 class MongoDatabase {
@@ -26,17 +26,14 @@ class MongoDatabase {
     return arrDataMotorista;
   }
 
-  //static Future<int> contarMotoristas() async {
-  //  var contador =
-  //      await userCollection.find.count(where.fields(['nomeMotorista']));
-  //  return contador;
-  //}
-
-  static Future<List<Map<String, dynamic>>> getVeiculo() async {
-    final arrDataVeiculo = await userCollection
-        .find(where.fields(['modeloVeiculo', 'placa']))
-        .toList();
-    return arrDataVeiculo;
+  static Future<void> update(MotoristasModel data) async {
+    var result = await userCollection.findOne({"_id": data.id});
+    result['nomeMotorista'] = data.nomeMotorista;
+    result['telefoneMotorista'] = data.telefoneMotorista;
+    result['matriculaMotorista'] = data.matriculaMotorista;
+    result['veiculoAtual'] = data.veiculoAtual;
+    var response = await userCollection.save(result);
+    inspect(result);
   }
 
   static Future<String> insertMotorista(MotoristasModel data) async {
@@ -53,7 +50,7 @@ class MongoDatabase {
     }
   }
 
-  static Future<String> insertVeiculo(VeiculosModel data) async {
+  /*static Future<String> insertVeiculo(VeiculosModel data) async {
     try {
       var result = await userCollection.insertOne(data.toJson());
       if (result.isSuccess) {
@@ -65,5 +62,18 @@ class MongoDatabase {
       print(e.toString());
       return e.toString();
     }
-  }
+  }*/
+
+  //static Future<int> contarMotoristas() async {
+  //  var contador =
+  //      await userCollection.find.count(where.fields(['nomeMotorista']));
+  //  return contador;
+  //}
+
+  /*static Future<List<Map<String, dynamic>>> getVeiculo() async {
+    final arrDataVeiculo = await userCollection
+        .find(where.fields(['modeloVeiculo', 'placa']))
+        .toList();
+    return arrDataVeiculo;
+  }*/
 }

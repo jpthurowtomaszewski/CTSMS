@@ -51,6 +51,7 @@ class _MotoristasListaState extends State<MotoristasLista> {
                         style: TextStyle(
                             fontSize: 28, fontWeight: FontWeight.bold),
                       )),
+                  SizedBox(height: 15),
                   FutureBuilder(
                       future: MongoDatabase.getMotorista(),
                       builder: (context, AsyncSnapshot snapshot) {
@@ -113,8 +114,32 @@ class _MotoristasListaState extends State<MotoristasLista> {
 
   Widget displayCard(MotoristasModel data) {
     return Card(
-        child: Column(
-      children: [Text("${data.nomeMotorista}")],
-    ));
+        color: Colors.grey,
+        child: Padding(
+          padding:
+              const EdgeInsets.only(top: 6, left: 14, right: 12, bottom: 6),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text("${data.nomeMotorista}",
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+              IconButton(
+                  onPressed: () {
+                    Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (BuildContext context) {
+                                  return MotoristasCreate();
+                                },
+                                settings: RouteSettings(arguments: data)))
+                        .then((value) {
+                      setState(() {});
+                    });
+                  },
+                  icon: Icon(Icons.edit))
+            ],
+          ),
+        ));
   }
 }

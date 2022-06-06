@@ -2,9 +2,11 @@
 
 //import 'dart:html';
 
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:tcc/pages/motoristas_lista.dart';
-import 'package:tcc/pages/veiculos_lista.dart';
+//import 'package:tcc/pages/veiculos_lista.dart';
 import 'package:tcc/pages/ver_mapa.dart';
 
 class HomeGestores extends StatefulWidget {
@@ -23,14 +25,14 @@ class _HomeGestoresState extends State<HomeGestores> {
     );
   }
 
-  veiculosLista() {
+  /*veiculosLista() {
     Navigator.push(
       context,
       MaterialPageRoute(
         builder: (_) => VeiculosLista(),
       ),
     );
-  }
+  }*/
 
   motoristasLista() {
     Navigator.push(
@@ -84,7 +86,7 @@ class _HomeGestoresState extends State<HomeGestores> {
                                   ))
                             ],
                           ))),
-                  Container(
+                  /*Container(
                       alignment: Alignment.center,
                       margin: EdgeInsets.only(top: 10, left: 24, right: 24),
                       child: ElevatedButton(
@@ -107,7 +109,7 @@ class _HomeGestoresState extends State<HomeGestores> {
                                         fontWeight: FontWeight.bold),
                                   ))
                             ],
-                          ))),
+                          ))),*/
                   Container(
                       alignment: Alignment.center,
                       margin: EdgeInsets.only(top: 10, left: 24, right: 24),
