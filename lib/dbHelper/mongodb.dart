@@ -50,6 +50,10 @@ class MongoDatabase {
     }
   }
 
+  static delete(MotoristasModel user) async {
+    await userCollection.remove(where.id(user.id));
+  }
+
   /*static Future<String> insertVeiculo(VeiculosModel data) async {
     try {
       var result = await userCollection.insertOne(data.toJson());

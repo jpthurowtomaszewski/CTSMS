@@ -122,9 +122,7 @@ class _MotoristasListaState extends State<MotoristasLista> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text("${data.nomeMotorista}",
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-              IconButton(
+              ElevatedButton(
                   onPressed: () {
                     Navigator.push(
                             context,
@@ -137,7 +135,24 @@ class _MotoristasListaState extends State<MotoristasLista> {
                       setState(() {});
                     });
                   },
-                  icon: Icon(Icons.edit))
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.all(16),
+                        child: Text("${data.nomeMotorista}",
+                            style: TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.bold),
+                            textAlign: TextAlign.start),
+                      )
+                    ],
+                  )),
+              IconButton(
+                  onPressed: () async {
+                    await MongoDatabase.delete(data);
+                    setState(() {});
+                  },
+                  icon: Icon(Icons.delete))
             ],
           ),
         ));
