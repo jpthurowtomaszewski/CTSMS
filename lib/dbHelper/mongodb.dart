@@ -20,7 +20,8 @@ class MongoDatabase {
           'nomeMotorista',
           'telefoneMotorista',
           'matriculaMotorista',
-          'veiculoAtual'
+          'veiculoAtual',
+          'geoLocal',
         ]))
         .toList();
     return arrDataMotorista;
@@ -32,6 +33,7 @@ class MongoDatabase {
     result['telefoneMotorista'] = data.telefoneMotorista;
     result['matriculaMotorista'] = data.matriculaMotorista;
     result['veiculoAtual'] = data.veiculoAtual;
+    result['geoLocal'] = data.geoLocal;
     var response = await userCollection.save(result);
     inspect(result);
   }

@@ -30,8 +30,28 @@ git pull = atualiza os arquivos locais de acordo com os arquivos no github
 git merge = (primeiro entre na brench que receberá as atualizações e use o git pull, depois use o
 git merge nome(da brench que sera salvo os dados) na principal
 
-a
 
+
+
+
+
+
+Revisar considerações da banca e ajustar o texto;
+    Tirar duvidas com orientador;
+
+Introdução
+    Desafios
+    Inspirações
+    Considerações
+
+Fundamentação teórica
+    Tecnologias Utilizadas
+
+Trabalhos relacionados
+    Descrever artigos relacionados ao tema
+
+Referências
+    Buscar Conforme avança no trabalho
 
 
 

@@ -15,6 +15,7 @@ class MotoristasModel {
     required this.telefoneMotorista,
     required this.matriculaMotorista,
     required this.veiculoAtual,
+    required this.geoLocal,
   });
 
   ObjectId id;
@@ -22,14 +23,16 @@ class MotoristasModel {
   String telefoneMotorista;
   String matriculaMotorista;
   String veiculoAtual;
+  String geoLocal;
 
   factory MotoristasModel.fromJson(Map<String, dynamic> json) =>
       MotoristasModel(
         id: json["_id"],
-        nomeMotorista: json["nomeMotorista"] ?? "vazio?",
-        telefoneMotorista: json["telefoneMotorista"] ?? "vazio?",
-        matriculaMotorista: json["matriculaMotorista"] ?? "vazio?",
-        veiculoAtual: json["veiculoAtual"] ?? "vazio?",
+        nomeMotorista: json["nomeMotorista"],
+        telefoneMotorista: json["telefoneMotorista"],
+        matriculaMotorista: json["matriculaMotorista"],
+        veiculoAtual: json["veiculoAtual"],
+        geoLocal: json["geoLocal"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -38,5 +41,6 @@ class MotoristasModel {
         "telefoneMotorista": telefoneMotorista,
         "matriculaMotorista": matriculaMotorista,
         "veiculoAtual": veiculoAtual,
+        "geoLocal": geoLocal,
       };
 }

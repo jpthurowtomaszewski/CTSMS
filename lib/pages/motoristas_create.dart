@@ -99,7 +99,8 @@ class _MotoristasCreateState extends State<MotoristasCreate> {
         nomeMotorista: nome,
         telefoneMotorista: telefone,
         matriculaMotorista: matricula,
-        veiculoAtual: "");
+        veiculoAtual: "",
+        geoLocal: "");
     await MongoDatabase.update(updataData)
         .whenComplete(() => Navigator.pop(context));
   }
@@ -108,12 +109,14 @@ class _MotoristasCreateState extends State<MotoristasCreate> {
       String nome, String telefone, String matricula) async {
     var _id = M.ObjectId();
     var veiculo = "";
+    var geo = "";
     final data = MotoristasModel(
         id: _id,
         nomeMotorista: nome,
         telefoneMotorista: telefone,
         matriculaMotorista: matricula,
-        veiculoAtual: veiculo);
+        veiculoAtual: veiculo,
+        geoLocal: geo);
     var result = await MongoDatabase.insertMotorista(data);
     ScaffoldMessenger.of(context)
         .showSnackBar(SnackBar(content: Text("ID inserido: " + _id.$oid)));
