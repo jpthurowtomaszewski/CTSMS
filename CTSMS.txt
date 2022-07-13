@@ -36,6 +36,9 @@ git merge nome(da brench que sera salvo os dados) na principal
 
 
 
+Exemplos:
+    TCC's
+
 Revisar considerações da banca e ajustar o texto;
     Tirar duvidas com orientador;
 
@@ -53,6 +56,9 @@ Trabalhos relacionados
 Referências
     Buscar Conforme avança no trabalho
 
-
+Enviar E-mail de convite ao professor orientador substituto: Kwecko
+    "Venho através deste e-mail convidá-lo a fazer parte de um momento importante de minha vida acadêmica, como meu orientador de trabalho de conclusão de curso. 
+    O orientador atual, o professor João Júnior da Silva Machado, estará afastado por motivos acadêmicos, em uma licença de Capacitação. Então para esta etapa final 
+    do desenvolvimento do meu projeto gostaria de contar com sua contribuição e experiência."
 
 
