@@ -60,5 +60,5 @@ Enviar E-mail de convite ao professor orientador substituto: Kwecko
     "Venho através deste e-mail convidá-lo a fazer parte de um momento importante de minha vida acadêmica, como meu orientador de trabalho de conclusão de curso. 
     O orientador atual, o professor João Júnior da Silva Machado, estará afastado por motivos acadêmicos, em uma licença de Capacitação. Então para esta etapa final 
     do desenvolvimento do meu projeto gostaria de contar com sua contribuição e experiência."
-
+Enviado!
 
